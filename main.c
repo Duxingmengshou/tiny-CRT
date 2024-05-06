@@ -1,5 +1,4 @@
 #include "gcrt.h"
-
 int main() {
     g_crt_init_heap();
     char str[50] = {0};
