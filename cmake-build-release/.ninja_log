@@ -1,0 +1,23 @@
+# ninja log v5
+5	76	7367074524332463	g_string.obj	1d92df35a7872dcd
+5	76	7367074524332463	E:/_project/CLion_project/CRT/cmake-build-release/g_string.obj	1d92df35a7872dcd
+0	302	7367075523312035	E:/_project/CLion_project/CRT/cmake-build-release/g_stdio.obj	6030936735fc241f
+349	400	7367074527622441	CMakeFiles/CRT.dir/main.c.obj	eda4567fe60fbda3
+15	344	7367074527032430	E:/_project/CLion_project/CRT/cmake-build-release/g_entry.obj	ea65bb21ab7eb834
+0	332	7367074526912588	g_malloc.obj	a1d42cd83a751294
+2	98	7367081561293281	build.ninja	73a0d6d799cb7a6a
+0	332	7367074526912588	E:/_project/CLion_project/CRT/cmake-build-release/g_malloc.obj	a1d42cd83a751294
+15	344	7367074527032430	g_entry.obj	ea65bb21ab7eb834
+0	302	7367075523312035	g_stdio.obj	6030936735fc241f
+302	347	7367075523749852	gcrt.lib	7b8a5cc131177aa0
+1	42	7367080056947311	CMakeFiles/CRT_obj.dir/main.c.obj	9230fa339fab6d17
+43	146	7367080057923032	CRT.exe	8f9c87296faa792d
+1	103	7367081561293281	build.ninja	73a0d6d799cb7a6a
+0	42	7367081656613328	CMakeFiles/CRT_obj.dir/main.c.obj	9230fa339fab6d17
+42	144	7367081657563156	CRT.exe	8f9c87296faa792d
+0	502	7367120317335234	g_stdio.obj	6030936735fc241f
+0	502	7367120317335234	E:/_project/CLion_project/CRT/cmake-build-release/g_stdio.obj	6030936735fc241f
+503	557	7367120317882222	gcrt.lib	7b8a5cc131177aa0
+557	662	7367120318902267	CRT.exe	8f9c87296faa792d
+0	42	7367121021304031	CMakeFiles/CRT_obj.dir/main.c.obj	9230fa339fab6d17
+43	146	7367121022264558	CRT.exe	8f9c87296faa792d
