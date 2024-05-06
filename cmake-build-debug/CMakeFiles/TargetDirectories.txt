@@ -1,6 +1,0 @@
-E:/_project/CLion_project/CRT/cmake-build-debug/CMakeFiles/gcrt.dir
-E:/_project/CLion_project/CRT/cmake-build-debug/CMakeFiles/CRT_obj.dir
-E:/_project/CLion_project/CRT/cmake-build-debug/CMakeFiles/CRT.dir
-E:/_project/CLion_project/CRT/cmake-build-debug/CMakeFiles/fake.dir
-E:/_project/CLion_project/CRT/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/_project/CLion_project/CRT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
