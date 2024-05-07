@@ -34,6 +34,8 @@ set_target_properties(gcrt PROPERTIES LINKER_LANGUAGE C)
 
 # 添加编译目标：生成 main.c 的目标文件 main.obj
 add_library(CRT_obj OBJECT main.c)
+# 指定编译选项，例如添加编译器标志
+target_compile_options(CRT_obj PRIVATE /DWIN32 /GS-)
 # 添加可执行文件 target，将 main.obj 链接到该可执行文件中
 add_executable(CRT $<TARGET_OBJECTS:CRT_obj>)
 # 链接 gcrt.lib 和 kernel32.lib
