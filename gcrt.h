@@ -43,6 +43,10 @@ unsigned int g_fputc(unsigned int c, FILE *stream);
 
 unsigned int g_fputs(const char *str, FILE *stream);
 
+int g_fgetc(FILE *stream);
+
+int g_fgetwc(FILE *stream);
+
 unsigned int g_printf(const char *format, ...);
 
 unsigned int g_fprintf(FILE *stream, const char *format, ...);
@@ -51,7 +55,7 @@ unsigned int g_vfprintf(FILE *stream, const char *format, char *arglist);
 
 FILE *g_fopen(const char *filename, const char *mode);
 
-int g_fread(void *buffer, int size, int count, FILE *stream);
+int g_fread(const void *buffer, unsigned int size, unsigned int count, FILE *stream);
 
 int g_fwrite(const void *buffer, unsigned int size, unsigned int count, FILE *stream);
 

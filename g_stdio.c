@@ -18,6 +18,21 @@ unsigned int g_fputs(const char *str, FILE *stream) {
         return len;
 }
 
+// 从文件输入字符(char)
+int g_fgetc(FILE *stream) {
+    char buf[1] = {0};
+    g_fread(buf, sizeof(char), 1, stream);
+    return *buf;
+}
+
+// 从文件输入字符(wchar)
+int g_fgetwc(FILE *stream) {
+    unsigned short buf[1] = {0};
+    g_fread(buf, sizeof(unsigned short), 1, stream);
+    return *buf;
+}
+
+
 // 格式化输出到命令行
 unsigned int g_printf(const char *format, ...) {
     va_list(arglist);
@@ -167,7 +182,7 @@ int g_fwrite(const void *buffer, unsigned int size, unsigned int count, FILE *st
 }
 
 // 读取文件
-int g_fread(void *buffer, int size, int count, FILE *stream) {
+int g_fread(const void *buffer, unsigned int size, unsigned int count, FILE *stream) {
     int read = 0;
     BOOL success = ReadFile(
             stream,                        // 文件句柄

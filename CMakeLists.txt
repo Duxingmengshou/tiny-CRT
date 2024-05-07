@@ -34,12 +34,12 @@ set_target_properties(gcrt PROPERTIES LINKER_LANGUAGE C)
 
 # 添加编译目标：生成 main.c 的目标文件 main.obj
 add_library(CRT_obj OBJECT main.c)
-# 指定链接参数
-set_target_properties(CRT_obj PROPERTIES LINK_FLAGS "/NODEFAULTLIB /entry:g_crt_entry")
 # 添加可执行文件 target，将 main.obj 链接到该可执行文件中
 add_executable(CRT $<TARGET_OBJECTS:CRT_obj>)
 # 链接 gcrt.lib 和 kernel32.lib
 target_link_libraries(CRT gcrt kernel32)
+# 指定链接参数
+set_target_properties(CRT PROPERTIES LINK_FLAGS "/NODEFAULTLIB /entry:g_crt_entry")
 
 # 利用一个假的目标启动Clion的代码审查功能
 add_executable(fake
