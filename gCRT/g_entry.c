@@ -5,8 +5,12 @@ extern int main(int argc, char *argv[]); // 申明程序员编写的程序中的
 void g_exit(int);
 
 static void crt_fatal_error(const char *msg) {
-    g_printf("error:%s", msg);
+    g_printf("error:%s\n", msg);
     g_exit(1);
+}
+
+static void crt_fatal_info(const char *msg) {
+    g_printf("info:%s\n", msg);
 }
 
 void g_crt_entry(void) {
@@ -46,6 +50,7 @@ void g_crt_entry(void) {
     }
     if (!g_crt_init_heap())
         crt_fatal_error("heap initialize failed");
+    crt_fatal_info("heap initialize ok");
     ret = main(argc, argv);
     g_exit(ret);
 }

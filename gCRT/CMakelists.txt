@@ -1,0 +1,26 @@
+add_library(gCRT STATIC
+        g_entry.c
+        g_stdio.c
+        g_string.c
+        g_malloc.c
+        gcrt.h
+)
+
+target_include_directories(gCRT
+        PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+#/DWIN32: 这个选项定义了一个预处理宏 WIN32。在编译过程中，任何地方使用 #ifdef WIN32 的条件编译指令都会被视为真。这通常用于在 Windows 平台上编译代码时包含特定于 Windows 的功能或库。
+#/GS-: 这个选项用于禁用缓冲区溢出检测。默认情况下，MSVC 会启用安全检查，以防止堆栈溢出攻击。使用 /GS- 可以关闭这种安全检查，因为我们使用自己的堆栈
+target_compile_options(gCRT
+        PRIVATE
+        /DWIN32
+        /GS-
+)
+
+# 指定连接器语言为C
+set_target_properties(gCRT
+        PROPERTIES
+        LINKER_LANGUAGE C
+)

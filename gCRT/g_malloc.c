@@ -1,4 +1,5 @@
 #include "gcrt.h"
+
 #define ADDR_ADD(addr, offset) (((char *)(addr)) + offset)// 地址偏移量计算
 #define HEADER_SIZE (sizeof(heap_header))// 堆头部大小
 
@@ -66,6 +67,7 @@ void *g_malloc(unsigned int size) {
         // 空闲块空间足够，且剩余的内部碎片分离出来还可以再使用
         if (header->size > size + HEADER_SIZE * 2) {
             // 分割空间
+            g_printf("%s\n","分割空间");
             heap_header *next = (heap_header *) ADDR_ADD(header, size + HEADER_SIZE);
             next->prev = header;
             next->next = header->next;
@@ -78,7 +80,7 @@ void *g_malloc(unsigned int size) {
             header->size = size + HEADER_SIZE;
             header->type = HEAP_BLOCK_USED;
             return ADDR_ADD(header, HEADER_SIZE);
-        };
+        }                                                                                                                                         ;
         header = header->next;
     }
     return NULL;

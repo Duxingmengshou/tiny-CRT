@@ -7,3 +7,5 @@
 #### link:Microsoft (R) Incremental Linker Version 14.39.33523.0
 #### lib:Microsoft (R) Library Manager Version 14.39.33523.0
 #### 使用CLion进行开发
+### 说明
+#### 使用Release版本进行运行
