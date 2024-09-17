@@ -20,10 +20,21 @@ extern "C"
 {
 #endif
 
+void _RTC_Shutdown();
+
+void _RTC_InitBase();
+
+void _RTC_CheckStackVars();
+
+// 内存管理
+void *g_memset(void *s, char c, unsigned int n);
+
 // 内存分配
 void g_free(void *ptr);
 
 void *g_malloc(unsigned size);
+
+void *g_calloc(unsigned int nmemb, unsigned int size);
 
 int g_crt_init_heap();
 
@@ -31,6 +42,8 @@ int g_crt_init_heap();
 char *g_reverse(char *s, unsigned int size);
 
 char *g_itoa(int n, char *str, int radix);
+
+int g_atoi(const char *nptr);
 
 unsigned int g_strlen(const char *sr);
 
@@ -62,6 +75,43 @@ int g_fwrite(const void *buffer, unsigned int size, unsigned int count, FILE *st
 int g_fclose(FILE *fp);
 
 int g_fseek(FILE *fp, int offset, int set);
+
+// ctype
+// 检查字符是否为字母或数字
+int g_isalnum(int c);
+
+// 检查字符是否为字母
+int g_isalpha(int c);
+
+// 检查字符是否为 ASCII 字符
+int g_isascii(int c);
+
+// 检查字符是否为控制字符
+int g_iscntrl(int c);
+
+// 检查字符是否为数字
+int g_isdigit(int c);
+
+// 检查字符是否为可打印字符（不包括空格）
+int g_isgraph(int c);
+
+// 检查字符是否为小写字母
+int g_islower(int c);
+
+// 检查字符是否为可打印字符（包括空格）
+int g_isprint(int c);
+
+// 检查字符是否为空白字符
+int g_isspace(int c);
+
+// 检查字符是否为标点符号
+int g_ispunct(int c);
+
+// 检查字符是否为大写字母
+int g_isupper(int c);
+
+// 检查字符是否为十六进制数字
+int g_isxdigit(int c);
 
 #ifdef __cplusplus
 }

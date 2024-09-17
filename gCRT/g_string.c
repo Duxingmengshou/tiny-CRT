@@ -17,22 +17,16 @@ unsigned int g_strlen(const char *str) {
 // 字符串反转，对前size个字符进行反转
 char *g_reverse(char *s, unsigned int size) {
     if (size <= 1) { return s; }
-    if (size % 2 == 0) {
-        for (unsigned int i = 0, j = size - 1; i - 1 != j; i++, j--) {
-            char tmp = s[i];
-            s[i] = s[j];
-            s[j] = tmp;
-        }
-    } else {
-        for (unsigned int i = 0, j = size - 1; i != j && j > 0; i++, j--) {
-            char tmp = s[i];
-            s[i] = s[j];
-            s[j] = tmp;
-        }
+    for (unsigned int i = 0, j = size - 1; i < j; i++, j--) {
+        char tmp = s[i];
+        s[i] = s[j];
+        s[j] = tmp;
     }
+    return s; // 返回反转后的字符串
 }
 
-// 对2-35进制进行数字转字符串，注意此处写死了str为char[32]
+
+// 数字转字符串，注意此处写死了str为char[32]
 char *g_itoa(int n, char *str, int radix) {
     char digit[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if (radix > 36 || radix < 2)
@@ -54,9 +48,32 @@ char *g_itoa(int n, char *str, int radix) {
         }
     }
     g_reverse(str, size);
-
     return str;
 }
+
+// 字符串转数字，跳过前面的空格字符，直到遇上数字或正负符号才开始做转换，而再遇到非数字或字符串结束时('\0')才结束转换，并将结果返回。
+int g_atoi(const char *nptr) {
+    int result = 0;
+    int sign = 1;
+    // 跳过前导空格
+    while (!g_isdigit(*nptr) && *nptr != '-' && *nptr != '+') {
+        nptr++;
+    }
+    // 处理符号
+    if (*nptr == '-') {
+        sign = -1;
+        nptr++;
+    } else if (*nptr == '+') {
+        nptr++;
+    }
+    // 转换数字
+    while (*nptr >= '0' && *nptr <= '9') {
+        result = result * 10 + (*nptr - '0');
+        nptr++;
+    }
+    return sign * result; // 返回结果
+}
+
 
 // 字符串比较，-1：src<dst，1：src>dst，0：相等
 int g_strcmp(const char *src, const char *dst) {
@@ -76,6 +93,7 @@ int g_strcmp(const char *src, const char *dst) {
         return 0;
     }
 }
+
 // 字符串复制
 char *g_strcpy(char *dest, const char *src) {
     for (unsigned int i = 0; i < g_strlen(dest) && i < g_strlen(src); i++) {

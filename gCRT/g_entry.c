@@ -4,6 +4,19 @@
 extern int main(int argc, char *argv[]); // 申明程序员编写的程序中的main函数
 void g_exit(int);
 
+void _RTC_Shutdown() {
+    // 这里可以添加你的清理代码
+}
+
+void _RTC_InitBase() {
+    // 这里可以添加初始化代码
+}
+
+void _RTC_CheckStackVars() {
+
+}
+
+
 static void crt_fatal_error(const char *msg) {
     g_printf("error:%s\n", msg);
     g_exit(1);

@@ -75,7 +75,6 @@ unsigned int g_vfprintf(FILE *stream, const char *format, char *arglist) {
                     if (g_fputs(buf, stream) < 0)
                         return EOF;
                     ret += g_strlen(buf);
-                    g_free(buf);
                 } else if (g_fputc('d', stream) < 0)
                     return EOF;
                 else
